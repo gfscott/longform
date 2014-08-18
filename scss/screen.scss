@@ -1,0 +1,310 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+/* GLOBAL VARIABLES */
+$brand_color: #dc4128;
+$serif_stack: "Droid Serif", Georgia, "Times New Roman", serif;
+$sans_stack: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+@import "normalize.scss";
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+body {
+  font-family: $serif_stack;
+  color: #444;
+  padding-top: 2.5em;
+  line-height: 1.4em;
+}
+
+p {
+  margin: 0 auto 1.8em;
+  padding: 0 1em;
+  max-width: 40rem;
+}
+
+a {
+  color: $brand_color;
+}
+
+
+hr {
+  margin: 2.8em auto;
+  border: 0;
+  height: 0;
+  max-width: 38em;
+  border-top: solid 1px #bbb;
+}
+
+/* Fixed header */
+
+header.global {
+  /* Functional */
+  margin: 0;
+  padding: 0.5em;
+  height: 2.5em;
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  transform: translate3d(0); /* Translate 3d Hack! */
+  z-index: 999;
+  /* Cosmetic */
+  background: $brand_color; /* CB brand colour */
+  background: $brand_color url('img/cb-logo.png') center center no-repeat;
+  background-size: contain;
+  box-shadow: 0 2px 4px rgba(33,33,33,0.44);
+}
+
+/* Regular Images, not full bleed */
+figure.bounded {
+	max-width: 60em;
+	margin: 2em auto;
+	padding: 0 1em;
+	
+	img {
+		max-width: 100%;
+	}
+	
+	figcaption, figcaption p {
+		max-width: 100%;
+		padding: 0;
+		font-style: italic;
+		color: #777;
+	}
+	figcaption {
+	  font-size: 0.8em;
+		border-bottom: solid 1px #bbb;
+	}
+	
+}
+
+/* Asides */
+
+aside {
+	margin: 2em auto;
+	padding: 1em;
+	max-width: 40em;
+	background: #eee;
+}
+
+aside.facebook, aside.ad {
+	width: 332px;
+	height: 282px;
+}
+
+@media (min-width: 40em) {
+	
+	aside {
+		margin: 0 1em 2em;
+		float: right;
+	}
+	
+}
+
+@media (min-width: 60em) {
+	
+	aside {
+		margin: 0 12em 2em 2em;
+	}
+	
+}
+
+/* Full Bleed Content */
+
+.full-bleed {
+  margin: 0 0 3em;
+  padding: 0;
+  width: 100%;
+  position: relative;
+  
+  figure {
+  	width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  img {
+    width: 100%;
+    max-width: 100%;
+  }  
+  
+  /* mobile first */
+  
+  .overlay {
+  	margin: 0 auto;
+  	padding: 0 1rem;
+	  max-width: 40em;
+	  
+	  p.byline {
+		  padding: 0;
+		  font-style: italic;
+		  max-width: 100%;
+	  }
+	  
+	  h1,h2 {
+		  font-family: $sans_stack;
+		  line-height: 1.2em;
+	  }
+	  
+	  h1 {
+		  letter-spacing: -1px;
+	  }
+	  
+	  h2{
+		  font-weight: normal;
+		  font-size: 1.4em;
+	  }
+	  
+  }
+	
+		@media (min-width: 40em) {
+		
+		.overlay {
+			/* Functional */
+			position: absolute;
+			/* Positioning */
+			top: 5em;
+			left: 0;
+			width: 50%;
+			/* Cosmetic */
+			color: #fff;
+			text-shadow: 1px 2px 4px rgba(33,33,33,0.75);
+			background: rgba(33,33,33,0.65);
+		}
+		
+	}
+	
+	@media (min-width: 60em){
+		
+		.overlay {
+			font-size: 1.2em;
+		}
+		
+	}
+	
+  
+}
+
+/* PULL QUOTES */
+/* Mobile First! */
+blockquote, blockquote.left, blockquote.right {
+	margin: 0 auto;
+	padding: 1em 2em 2em;
+	max-width: 40rem;
+  font-family: $sans_stack;
+  font-size: 1.2em;
+  line-height: 1.4em;
+  color: $brand_color;
+}
+
+/* Medium Screens */
+@media (min-width: 40em) {
+	
+	blockquote, blockquote.left, blockquote.right {
+		
+		width: 20rem;
+		font-size: 1.6em;
+				
+	}
+	
+	blockquote, blockquote.left {
+		float: left; /* By default blockquotes float left! */
+	}
+	
+	blockquote.right {
+		float: right;
+	}
+	
+}
+
+/* Large Screens */
+@media (min-width: 60em) {
+	
+	blockquote, blockquote.left, blockquote.right {
+		width: 30rem;
+		font-size: 1.8em;
+	}
+	
+	blockquote, blockquote.left {
+		margin-left: 10rem;
+	}
+	
+	blockquote.right {
+		margin-right: 10rem;
+	}
+	
+}
+
+
+
+/* Bold first line of a paragraph; likely used only for the first line of a story */
+.bold-start::first-line {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* Drop-Cap Style */
+.drop-cap {
+  /* Functional */
+  font-weight: normal;
+  font-size: 3em;
+  line-height: 2.8rem;
+  padding-right: 0.5rem;
+  float: left;
+  /* Cosmetic */
+  color: #555;
+  font-style: italic;
+}
+
+
+
+/* VIDEO */
+.video {
+	margin: 2em auto;
+	max-width: 960px;
+	/* Responsiveness is handled by fitvid.js! */
+}
+
+
+
+
+/* PROMO */
+a.promo {
+	display: block;
+	margin: 0 auto;
+	max-width: 40em;
+	text-align: center;
+	padding: 1em;
+	border-radius: 0.5em;
+	background: $brand_color;
+	color: #fff;
+}
+
+
+
+/* FOOTER */
+footer.global {
+  
+  margin: 3em 0 0;
+	padding: 3em 1em 1em;
+	background: #444;
+	color: #ddd;
+	font-family: $sans_stack;
+	  
+  p {
+    font-size: 0.8em;
+    text-align: center;
+  }
+  
+  a {
+    color: #ddd;
+  }
+  
+}
+
+
